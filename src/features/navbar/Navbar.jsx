@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import logo from '../../assets/images/logo-bookchimp.png'
 import { Heart, Search, User } from 'lucide-react'
 import { Button } from '../../components/ui/button'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
 const Navbar = () => {
+
+  gsap.registerPlugin(useGSAP)
+  
+  const container = useRef(null)
+  useGSAP(()=>{
+    const tl = gsap.timeline({
+      defaults:{
+        ease:'power3.out',
+        duration: 1.5,
+      },
+    })
+    tl.from('.logo',{
+      y:-200,
+      opacity:0,
+    })
+    .from('.list',{
+      y:-200,
+      opacity:0,
+    }, '<')
+  },{scope:container})
   return (
-    <div className='w-full h-24 flex items-center justify-between -z-10 px-24'>
+    <div ref={container} className='w-full h-24 flex items-center justify-between -z-10 px-24'>
       <div className="logo w-46">
         <img src={logo} alt="" />
       </div>
