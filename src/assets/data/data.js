@@ -18,3 +18,11 @@ export const servicesData = [
         icon: icon3
     }
 ]
+
+export const categoriesData = [
+    {
+        id:1,
+        name:"Romance",
+        
+    }
+]
