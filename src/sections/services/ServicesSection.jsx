@@ -19,7 +19,7 @@ const ServicesSection = () => {
       scrollTrigger: {
         trigger: container.current,
         start: 'top 80%',
-        toggleActions: 'play none none reverse',
+        toggleActions: 'play none none',
       },
     })
 
@@ -42,7 +42,7 @@ const ServicesSection = () => {
   return (
     <div
       ref={container}
-      className="mt-7 h-55 px-24 w-full items-center gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      className="mt-7 h-55 px-16 w-full items-center gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
       {servicesData.map((s, i) => (
         <div

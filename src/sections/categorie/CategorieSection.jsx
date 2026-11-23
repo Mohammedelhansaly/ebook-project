@@ -15,34 +15,33 @@ const CategorieSection = () => {
       defaults: {
         ease: 'power3.out',
         duration: 1.5,
-        markers: true,
       },
       scrollTrigger: {
         trigger: container.current,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse',
+        start: 'bottom 50%',
+        toggleActions: 'play none none',
       },
     })
-      tl.from('.categorie_card', {
-        delay: 0.5,
-        y: 100,
+    for (let i = 0; i < categoriesData.length; i++){
+      tl.from(`.categorie_card:nth-child(${i + 1})`, {
+        y: 200,
         opacity: 0,
-        y: 100,
-      } , '-=0.7')
+      } , '-=1')
+    }
   }, {scope:container})
   
 
   return (
-    <div className='px-24 mt-10 ' ref={container}>
+    <div className='px-16 mt-10 ' ref={container}>
       <h1 className='text-4xl font-semibold text-black text-center'>Book Categories</h1>
       <div className="categorie_cards mt-10 grid grid-cols-8 gap-4">
         {
           categoriesData.map((category) => (
-            <Card className="categorie_card relative h-44 w-full
+            <div className="categorie_card relative h-50 w-full rounded-2xl
              flex items-center justify-center bg-no-repeat bg-cover bg-center"  style={{ backgroundImage: `url(${category.image
             })` }}>
-              <CardTitle className="text-white text-lg font-bold" >{category.name}</CardTitle>
-            </Card>
+              <h3 className="text-white text-lg font-semibold" >{category.name}</h3>
+            </div>
           ))
         }
         

@@ -27,7 +27,7 @@ const Navbar = () => {
     }, '<')
   },{scope:container})
   return (
-    <div ref={container} className='w-full h-24 flex items-center justify-between -z-10 px-24'>
+    <div ref={container} className='w-full h-24 flex items-center justify-between -z-10 px-16'>
       <div className="logo w-46">
         <img src={logo} alt="" />
       </div>
